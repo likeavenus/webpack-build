@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production",
-    "watch": "webpack --mode development --watch",
     "start": "webpack-dev-server --mode development --open"
   },
   "browserslist": "> 0.25%, not dead",
