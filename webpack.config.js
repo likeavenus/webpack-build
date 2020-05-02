@@ -19,16 +19,17 @@ const optimization = () => {
         config.minimizer = [
             new OptimizeCssPlugin(),
             new TerserPlugin()
-
         ]
     }
     return config;
 };
 
+
+
 module.exports = {
     context: path.resolve(__dirname, ''),
     mode: 'development',
-    entry: './src/index.js',
+    entry: ['@babel/polyfill', './src/index.js'],
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname, 'dist')
@@ -38,6 +39,7 @@ module.exports = {
         port: 9000,
         hot: isDev
     },
+    devtool: isDev ? 'source-map' : '',
     plugins: [
         new HtmlWebpackPlugin({
             template: "./src/index.html",
@@ -59,14 +61,26 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/,
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            '@babel/preset-env'
+                        ]
+                    }
+                }
+            },
+            {
+                test: /\.(s[ac]ss)$/,
                 use: [{
                     loader: MiniCssExtractPlugin.loader,
                     options: {
                         hmr: isDev,
                         reloadAll: true
                     }
-                }, 'css-loader']
+                }, 'css-loader', 'sass-loader']
             },
             {
                 test: /\.(png|jpg|jpeg|gif|svg|webp)$/,
