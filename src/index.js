@@ -1,26 +1,20 @@
 import './assets/css/styles.scss';
 import './assets/css/header.scss';
 
-function sum(a, b) {
-    return a + b;
-}
-
-sum(1, 2);
-
-async function f() {
-    const promise = await fetch('https://google.com');
-
-    return promise;
-}
-f().then(r => r);
-
-class B  {
-    constructor(name) {
-        this.name = name;
+const user = {
+    name: 'Alex',
+    sayHi() {
+        console.log('hi,', this.name)
     }
+};
+
+user.sayHi();
+
+const f = () => {
+    console.log(this)
 }
 
-console.log(new B('Sanek'))
+f()
 
-
+console.log(this);
 
