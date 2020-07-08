@@ -7,7 +7,7 @@
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --open",
-    "deployToGhPages": "cross-env NODE_ENV=production webpack --mode production node deploy.js"
+    "deployToGhPages": "npm run build && node deploy.js"
   },
   "browserslist": "> 0.25%, not dead",
   "author": "Rafael Guliev",
