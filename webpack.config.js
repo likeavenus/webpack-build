@@ -36,6 +36,8 @@ module.exports = {
     },
     optimization: optimization(),
     devServer: {
+        contentBase: path.join(__dirname, 'src'),
+        watchContentBase: true,
         port: 9000,
         hot: isDev
     },
