@@ -5,4 +5,4 @@ const repositoryUrl = `https://github.com/likeavenus/${NAME}`; // Адрес р�
 ghpages.publish('dist', {
     branch: 'gh-pages',
     repo: repositoryUrl
-}, ()=> {console.log('Deploy is successful')});
+}, ()=> { console.log('Deploy is successful') });
