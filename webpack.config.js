@@ -74,7 +74,7 @@ module.exports = {
                     options: {
                         presets: [
                             '@babel/preset-env',
-                            // '@babel/preset-react' Раскомментировать и установить зависимость, если хотите использовать React
+                            '@babel/preset-react'
                         ]
                     }
                 }
